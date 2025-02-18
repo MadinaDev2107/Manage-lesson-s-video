@@ -3,11 +3,25 @@ import Cabinet from "./Cabinet";
 import Login from "./Login";
 import Register from "./Register";
 import VideoModal from "./AddLesson";
-import { Routes, Route, Link } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  Link,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
+import { useEffect } from "react";
 const App = () => {
   const a = localStorage.getItem("id");
-  console.log(a);
+  const navigate = useNavigate();
+  const location = useLocation();
 
+  useEffect(() => {
+    const token = localStorage.getItem("id");
+    if (!token) {
+      navigate("/login");
+    }
+  }, [navigate, location.pathname]);
   return (
     <div>
       <div className="text-white d-flex justify-content-between p-3 bg-dark align-items-center">
