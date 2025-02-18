@@ -2,7 +2,7 @@ import axios from "axios";
 
 export function apicall(url: string, method: string, user: unknown) {
   return axios({
-    baseURL: "http://localhost:3000",
+    baseURL: "https://adding-videos.onrender.com",
     url,
     method,
     data: user,
