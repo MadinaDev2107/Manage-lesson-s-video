@@ -19,7 +19,9 @@ const App = () => {
   useEffect(() => {
     const token = localStorage.getItem("id");
     if (!token) {
-      navigate("/login");
+      if (location.pathname === "/cabinet") {
+        navigate("/login");
+      }
     }
   }, [navigate, location.pathname]);
   return (
